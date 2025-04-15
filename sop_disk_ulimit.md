@@ -7,7 +7,6 @@
 ### 🔹 1.1 Check Disk Usage
 
 ```bash
-CopyEdit
 df -h
 
 ```
@@ -17,8 +16,6 @@ df -h
 ### 🔹 1.2 List Mounted File Systems and Types
 
 ```bash
-bash
-CopyEdit
 mount | column -t
 
 ```
@@ -26,8 +23,7 @@ mount | column -t
 or
 
 ```bash
-bash
-CopyEdit
+
 findmnt
 
 ```
@@ -37,8 +33,6 @@ findmnt
 ### 🔹 1.3 Check Specific Mount Point Usage (e.g., `/var`)
 
 ```bash
-bash
-CopyEdit
 du -sh /var/*
 
 ```
@@ -48,8 +42,6 @@ du -sh /var/*
 ### 🔹 1.4 View Disk Partitions
 
 ```bash
-bash
-CopyEdit
 lsblk
 
 ```
@@ -63,8 +55,6 @@ lsblk
 ### 🔹 2.1 View Current Ulimit (Session-Based)
 
 ```bash
-bash
-CopyEdit
 ulimit -a
 
 ```
@@ -74,8 +64,6 @@ ulimit -a
 ### 🔹 2.2 Temporarily Set Ulimit for Current Session
 
 ```bash
-bash
-CopyEdit
 ulimit -n 65535       # Open file descriptors
 ulimit -u 4096        # Max user processes
 
@@ -90,8 +78,6 @@ ulimit -u 4096        # Max user processes
 Edit the limits file:
 
 ```bash
-bash
-CopyEdit
 sudo nano /etc/security/limits.conf
 
 ```
@@ -99,8 +85,6 @@ sudo nano /etc/security/limits.conf
 Add or update lines:
 
 ```
-php-template
-CopyEdit
 <username>   soft   nofile   65535
 <username>   hard   nofile   65535
 <username>   soft   nproc    4096
@@ -120,8 +104,6 @@ CopyEdit
 Ensure PAM enforces limits:
 
 ```bash
-bash
-CopyEdit
 sudo nano /etc/pam.d/common-session
 
 ```
