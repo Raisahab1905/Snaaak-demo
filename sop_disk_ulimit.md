@@ -7,7 +7,6 @@
 ### 🔹 1.1 Check Disk Usage
 
 ```bash
-bash
 CopyEdit
 df -h
 
