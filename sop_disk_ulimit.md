@@ -111,8 +111,6 @@ sudo nano /etc/pam.d/common-session
 Add this line if not already present:
 
 ```
-swift
-CopyEdit
 session required pam_limits.so
 
 ```
@@ -124,8 +122,6 @@ session required pam_limits.so
 ### 🔹 5.1 Configure Systemd Service Limits
 
 ```bash
-bash
-CopyEdit
 sudo systemctl edit <your-service>
 
 ```
@@ -133,8 +129,6 @@ sudo systemctl edit <your-service>
 Add override settings:
 
 ```
-ini
-CopyEdit
 [Service]
 LimitNOFILE=65535
 LimitNPROC=4096
@@ -144,8 +138,6 @@ LimitNPROC=4096
 Then reload and restart:
 
 ```bash
-bash
-CopyEdit
 sudo systemctl daemon-reexec
 sudo systemctl daemon-reload
 sudo systemctl restart <your-service>
@@ -159,8 +151,6 @@ sudo systemctl restart <your-service>
 ### 🔹 6.1 Confirm Limits for Running Processes
 
 ```bash
-bash
-CopyEdit
 cat /proc/<pid>/limits
 
 ```
@@ -168,8 +158,6 @@ cat /proc/<pid>/limits
 ### 🔹 6.2 Confirm User Limits (Login Test)
 
 ```bash
-bash
-CopyEdit
 ulimit -n
 ulimit -u
 
