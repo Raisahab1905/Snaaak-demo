@@ -1,4 +1,5 @@
-🧾 SOP: Disk Usage, Mount Points, and Ulimit Settings
+##🧾 SOP: Disk Usage, Mount Points, and Ulimit Settings
+
 Category: Common Stack
 Platform: Ubuntu (20.04/22.04 LTS)
 Purpose: To standardize how to monitor and configure disk usage and ulimit settings across all Ubuntu-based systems in the environment.
