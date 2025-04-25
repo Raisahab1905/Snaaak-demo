@@ -102,6 +102,6 @@ This POC outlines the setup of the `Notification API` without using Docker. It l
 
 ### Update System and Install Dependencies
 
-```bash
+```
 sudo apt update && sudo apt upgrade -y
-sudo apt install python3 python3-pip python3-venv curl wget git -y
+sudo apt install python3 python3-pip python3-venv curl wget git -y ``` 
