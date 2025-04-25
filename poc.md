@@ -104,4 +104,131 @@ This POC outlines the setup of the `Notification API` without using Docker. It l
 
 ```
 sudo apt update && sudo apt upgrade -y
-sudo apt install python3 python3-pip python3-venv curl wget git -y ``` 
+sudo apt install python3 python3-pip python3-venv curl wget git -y 
+
+```
+### Verify Python and pip
+
+```bash
+python3 --version
+pip3 --version
+```
+
+---
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/OT-MICROSERVICES/notification-worker.git
+cd notification-worker/
+```
+
+---
+
+### Set Up Virtual Environment
+
+```bash
+python3 -m venv venv
+source venv/bin/activate
+```
+
+---
+
+### Install Python Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### Install Elasticsearch
+
+```bash
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.17.17-amd64.deb
+sudo dpkg -i elasticsearch-7.17.17-amd64.deb
+sudo systemctl enable elasticsearch
+sudo systemctl start elasticsearch
+```
+
+---
+
+### Verify Elasticsearch
+
+```bash
+curl http://localhost:9200
+```
+
+You should receive a JSON response from Elasticsearch.
+
+---
+
+## Configure & Run the Application
+
+---
+
+### Add Test Data
+
+Run the following command to insert test data into Elasticsearch:
+
+```bash
+curl -X POST "localhost:9200/employee-management/_doc/1" -H 'Content-Type: application/json' -u elastic:elastic -d'
+{
+  "name": "Your Name",
+  "email_id": "your-real-email@gmail.com"
+}'
+```
+
+---
+
+### Configure `config.yaml`
+
+Edit `config.yaml` to match your credentials and environment setup:
+
+```yaml
+smtp:
+  from: "your-real-email@gmail.com"
+  username: "your-real-email@gmail.com"
+  password: "your-app-password"     # Use App Password, not Gmail password
+  smtp_server: "smtp.gmail.com"
+  smtp_port: "587"
+
+elasticsearch:
+  username: "elastic"
+  password: "elastic"
+  host: "localhost"
+  port: 9200
+```
+
+> 💡 **Tip**: You must use a Gmail **App Password**. [How to create one](https://support.google.com/accounts/answer/185833)
+
+---
+
+### Run the Notification Service
+
+```bash
+export CONFIG_FILE=./config.yaml
+python3 notification_api.py --mode external
+```
+
+---
+
+## Testing the Application
+
+- Observe terminal logs for successful email dispatch.
+- Ensure you receive the email in your inbox.
+- Troubleshoot using logs if not delivered.
+
+---
+
+## Conclusion
+
+The Notification-API has been successfully installed and tested locally without Docker using Python, Elasticsearch, and Gmail SMTP.
+
+---
+
+## References
+
+- [Notification Worker GitHub](https://github.com/OT-MICROSERVICES/notification-worker)
+- [Elasticsearch Downloads](https://www.elastic.co/downloads/elasticsearch)
+- [Google App Passwords](https://support.google.com/accounts/answer/185833)
