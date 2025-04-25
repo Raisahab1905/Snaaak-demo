@@ -20,7 +20,6 @@
 - [Step-by-step installation](#step-by-step-installation)
 - [Clone the Repository](#clone-the-repository)
 - [Install Elasticsearch](#install-elasticsearch)
-- [Install migrate Tool](#install-migrate-tool)
 - [Testing the Application](#testing-the-application )
 - [Conclusion](#conclusion)
 - [Contacts](#contacts)
