@@ -39,7 +39,7 @@
 
 ## Introduction
 
-This POC outlines the setup of the `Notification API` without using Docker. It leverages Python, Elasticsearch, and local system services to run the application as intended.
+This POC outlines the setup of the `Notification API`. It leverages Python, Elasticsearch, and local system services to run the application as intended.
 
 ---
 
