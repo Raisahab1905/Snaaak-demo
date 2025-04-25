@@ -226,7 +226,7 @@ python3 notification_api.py --mode external
 
 ## Conclusion
 
-The Notification-API has been successfully installed and tested locally without Docker using Python, Elasticsearch, and Gmail SMTP.
+The Notification-API has been successfully installed and tested locally using Python, Elasticsearch, and Gmail SMTP.
 
 ---
 
