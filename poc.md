@@ -26,3 +26,6 @@
 - [References](#references)
 
 ---
+## Introduction
+
+Welcome to the Notification-API POC. Employee REST API is a golang based microservice which is responsible for all the employee related transactions in the OT-Microservices. This application is completely platform independent and can be run on any kind of platform.
