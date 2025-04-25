@@ -59,7 +59,6 @@ This POC outlines the setup of the `Notification API`. It leverages Python, Elas
 | Python       | 3.8+      |
 | pip          | 20+       |
 | Elasticsearch| 7.17.17   |
-| Linux OS     | Ubuntu 22.04 |
 
 ---
 
