@@ -3,7 +3,7 @@
 
 ## Author Information
 
-| Created/Modified | Version | Author               | Comment         | L0 Reviewer      |
+| Created/Modified | Version | Author               | Comment         | Internal Reviewer      |
 |-------------------|---------|----------------------|-----------------|------------------|
 | 24-04-2025        | V1      | Prateek Rai | Initial Commit  | Siddharth Pawar  |
 
