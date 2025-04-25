@@ -97,7 +97,7 @@ This POC outlines the setup of the `Notification API` without using Docker. It l
 | Python               | 3.x                        | Required to run the Notification API        |
 | Elasticsearch        | 7.17.17                    | Backend for storing and querying data       |
 | SMTP                 | Gmail SMTP (`smtp.gmail.com`) | Used for sending notification emails     |
-| Python Libraries     | `requirements.txt`         | All required libraries for the app          |
+| pip            | latest   | For managing Python packages            |
 
 
 ---
