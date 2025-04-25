@@ -231,8 +231,17 @@ The Notification-API has been successfully installed and tested locally without 
 
 ---
 
-## References
+## **Contact Information**
+| Name         | Email Address                                |
+|--------------|----------------------------------------------|
+| Prateek Rai | prateek.rai.snaatak@mygurukuam.co           |
 
-- [Notification Worker GitHub](https://github.com/OT-MICROSERVICES/notification-worker)
-- [Elasticsearch Downloads](https://www.elastic.co/downloads/elasticsearch)
-- [Google App Passwords](https://support.google.com/accounts/answer/185833)
+---
+
+## **References**
+| Title                              | Link                                                                   |
+|------------------------------------|------------------------------------------------------------------------|
+| Ubuntu Official Docs               | https://help.ubuntu.com                                               |
+| Elasticsearch Installation Guide   | https://www.elastic.co/downloads/                                     |
+| Gmail App Password Setup           | https://support.google.com/accounts/answer/185833                     |
+| SendGrid SMTP Guide                | https://docs.sendgrid.com/for-developers/sending-email/smtp-api/     |
