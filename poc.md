@@ -84,3 +84,24 @@ This POC outlines the setup of the `Notification API` without using Docker. It l
 
 ## Architecture
 
+---
+
+
+---
+
+## Dependencies
+
+- Python 3.x
+- Elasticsearch 7.17.17
+- SMTP (Gmail SMTP server)
+- Python Libraries (from `requirements.txt`)
+
+---
+
+## Step-by-step Installation
+
+### Update System and Install Dependencies
+
+```bash
+sudo apt update && sudo apt upgrade -y
+sudo apt install python3 python3-pip python3-venv curl wget git -y
