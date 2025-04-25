@@ -220,7 +220,8 @@ python3 notification_api.py --mode external
 
 - Observe terminal logs for successful email dispatch.
 - Ensure you receive the email in your inbox.
-- Troubleshoot using logs if not delivered.
+- Troubleshoot using logs if not delivered. 
+  For troubleshooting go through this [link](https://github.com/snaatak-Downtime-Crew/Documentation/blob/SCRUMS-75-PRINCE/ot-ms-understanding/notification/documentation/README.md#troubleshooting).
 
 ---
 
