@@ -231,7 +231,7 @@ The Notification-API has been successfully installed and tested locally without 
 
 ---
 
-## **Contact Information**
+## **Contacts**
 | Name         | Email Address                                |
 |--------------|----------------------------------------------|
 | Prateek Rai | prateek.rai.snaatak@mygurukuam.co           |
