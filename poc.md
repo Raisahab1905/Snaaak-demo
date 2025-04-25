@@ -86,7 +86,7 @@ This POC outlines the setup of the `Notification API`. It leverages Python, Elas
 ## Architecture
 
 ---
-
+![image](https://github.com/user-attachments/assets/ae8c7bcd-d6fc-43d0-9980-af33e58f32c2)
 
 ---
 
