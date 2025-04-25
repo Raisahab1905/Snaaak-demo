@@ -58,18 +58,19 @@ This POC outlines the setup of the `Notification API` without using Docker. It l
 |--------------|-----------|
 | Python       | 3.8+      |
 | pip          | 20+       |
-| Git          | Any       |
 | Elasticsearch| 7.17.17   |
-| Linux OS     | Ubuntu 20.04/22.04 recommended |
+| Linux OS     | Ubuntu 22.04 |
 
 ---
 
 ## System Requirements
 
-- 2 vCPU
-- 4 GB RAM
-- 10 GB free disk
-- Open ports: 9200 (Elasticsearch), 587 (SMTP)
+| Hardware Specifications | Recommended Minimum |
+|-------------------------|---------------------|
+| Processor               | 2 vCPU              |
+| RAM                     | 4 GB                |
+| Disk                    | 8 GB                |
+| OS                      | Ubuntu 22.04        |
 
 ---
 
