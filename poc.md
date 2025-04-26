@@ -226,7 +226,9 @@ export CONFIG_FILE=./config.yaml
 python3 notification_api.py --mode external
 ```
 ![image](https://github.com/Raisahab1905/Snaaak-demo/blob/prateek_scrums_74/runs-service.png?raw=true)
+
 - Email has been succesfully sent to particular employee with the help of Notification-API.
+  
 ![image](https://github.com/Raisahab1905/Snaaak-demo/blob/prateek_scrums_74/salary-slip-mail.png?raw=true)
 
 ---
