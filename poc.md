@@ -114,12 +114,14 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install python3 python3-pip python3-venv curl wget git -y 
 
 ```
+![image](https://github.com/Raisahab1905/Snaaak-demo/blob/prateek_scrums_74/python-setup.png?raw=true)
 ### Verify Python and pip
 
 ```bash
 python3 --version
 pip3 --version
 ```
+![image](https://github.com/Raisahab1905/Snaaak-demo/blob/prateek_scrums_74/pyhton-version.png?raw=true)
 
 ---
 
@@ -129,6 +131,7 @@ pip3 --version
 git clone https://github.com/OT-MICROSERVICES/notification-worker.git
 cd notification-worker/
 ```
+![image](https://github.com/Raisahab1905/Snaaak-demo/blob/prateek_scrums_74/git-clone.png?raw=true)
 
 ---
 
@@ -146,6 +149,7 @@ source venv/bin/activate
 ```bash
 pip install -r requirements.txt
 ```
+![image](https://github.com/Raisahab1905/Snaaak-demo/blob/prateek_scrums_74/venv-setup-requirement.txt.png?raw=true)
 
 ---
 
@@ -157,6 +161,7 @@ sudo dpkg -i elasticsearch-7.17.17-amd64.deb
 sudo systemctl enable elasticsearch
 sudo systemctl start elasticsearch
 ```
+![image](https://github.com/Raisahab1905/Snaaak-demo/blob/prateek_scrums_74/elasticsearch-setup.png?raw=true)
 
 ---
 
@@ -166,7 +171,9 @@ sudo systemctl start elasticsearch
 curl http://localhost:9200
 ```
 
-You should receive a JSON response from Elasticsearch.
+You should receive a JSON response from Elasticsearch like given below.
+
+![image](https://github.com/Raisahab1905/Snaaak-demo/blob/prateek_scrums_74/elasticsearch-status.png?raw=true)
 
 ---
 
@@ -185,6 +192,7 @@ curl -X POST "localhost:9200/employee-management/_doc/1" -H 'Content-Type: appli
   "email_id": "your-real-email@gmail.com"
 }'
 ```
+![image](https://github.com/Raisahab1905/Snaaak-demo/blob/prateek_scrums_74/data-pushed.png?raw=true)
 
 ---
 
@@ -217,6 +225,7 @@ elasticsearch:
 export CONFIG_FILE=./config.yaml
 python3 notification_api.py --mode external
 ```
+![image](https://github.com/Raisahab1905/Snaaak-demo/blob/prateek_scrums_74/runs-service.png?raw=true)
 
 ---
 
