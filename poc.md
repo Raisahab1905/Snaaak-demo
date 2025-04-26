@@ -107,6 +107,10 @@ This POC outlines the setup of the `Notification API`. It leverages Python, Elas
 
 ```
 sudo apt update && sudo apt upgrade -y
+```
+[!image](https://github.com/Raisahab1905/Snaaak-demo/blob/prateek_scrums_74/sudo-apt-update.png?raw=true)
+
+```
 sudo apt install python3 python3-pip python3-venv curl wget git -y 
 
 ```
