@@ -85,7 +85,7 @@ This POC outlines the setup of the `Notification API`. It leverages Python, Elas
 ## Architecture
 
 ---
-![image]()
+![image](https://github.com/Raisahab1905/Snaaak-demo/blob/prateek_scrums_74/Screenshot%202025-04-26%20005641.png?raw=true)
 
 ---
 
