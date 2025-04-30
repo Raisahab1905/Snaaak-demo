@@ -1,12 +1,14 @@
 # POC of Notification-API
 
+![Image](https://thaka.bing.com/th/id/OIP.g9SdunVmLqkrgtyX2RvRHgHaHa?w=173&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7)
+
 ---
 
 ## Author Information
 
-| Created/Modified | Version | Author       | Comment         | Internal Reviewer    |
-|------------------|---------|--------------|------------------|----------------------|
-| 24-04-2025       | V1      | Prateek Rai  | Initial Commit   | Siddharth Pawar      |
+| Created | Modified | Version | Author       | Comment         | Internal Reviewer    |
+|---------|---------|---------|--------------|------------------|----------------------|
+| 24-04-2025 | 28-04-2025      | V1.1     | Prateek Rai  | Initial Commit   | Siddharth Pawar      |
 
 ---
 
@@ -14,11 +16,7 @@
 
 - [Introduction](#introduction)
 - [Supported Features](#supported-features)
-- [Pre-requisites](#pre-requisites)
-- [System Requirements](#system-requirements)
 - [Important Ports](#important-ports)
-- [Architecture](#architecture)
-- [Dependencies](#dependencies)
 - [Step-by-step Installation](#step-by-step-installation)
   - [Update System and Install Dependencies](#update-system-and-install-dependencies)
   - [Verify Python and pip](#verify-python-and-pip)
@@ -52,27 +50,6 @@ This POC outlines the setup of the `Notification API`. It leverages Python, Elas
 
 ---
 
-## Pre-requisites
-
-| Tool         | Version   |
-|--------------|-----------|
-| Python       | 3.8+      |
-| pip          | 20+       |
-| Elasticsearch| 7.17.17   |
-
----
-
-## System Requirements
-
-| Hardware Specifications | Recommended Minimum |
-|-------------------------|---------------------|
-| Processor               | 2 vCPU              |
-| RAM                     | 4 GB                |
-| Disk                    | 8 GB                |
-| OS                      | Ubuntu 22.04        |
-
----
-
 ## Important Ports
 
 | Service         | Port |
@@ -82,32 +59,13 @@ This POC outlines the setup of the `Notification API`. It leverages Python, Elas
 
 ---
 
-## Architecture
-
----
-![image](https://github.com/Raisahab1905/Snaaak-demo/blob/prateek_scrums_74/Screenshot%202025-04-26%20005641.png?raw=true)
-
----
-
-## Dependencies
-
-| Dependency           | Version / Source           | Description                                 |
-|----------------------|----------------------------|---------------------------------------------|
-| Python               | 3.x                        | Required to run the Notification API        |
-| Elasticsearch        | 7.17.17                    | Backend for storing and querying data       |
-| SMTP                 | Gmail SMTP (`smtp.gmail.com`) | Used for sending notification emails     |
-| pip            | latest   | For managing Python packages            |
-
-
----
-
 ## Step-by-step Installation
 
 ### Update System and Install Dependencies
 
-```
-sudo apt update && sudo apt upgrade -y
-```
+#### System Update Command
+>  **Follow Step 3 here**: [System Update Command](https://github.com/snaatak-Downtime-Crew/Documentation/tree/main/common_stack/operating_system/ubuntu/sop/commoncommands)
+
 ![image](https://github.com/Raisahab1905/Snaaak-demo/blob/prateek_scrums_74/sudo-apt-update.png?raw=true)
 
 ```
@@ -261,4 +219,4 @@ The Notification-API has been successfully installed and tested locally using Py
 | Ubuntu Official Docs               | https://help.ubuntu.com                                               |
 | Elasticsearch Installation Guide   | https://www.elastic.co/downloads/                                     |
 | Gmail App Password Setup           | https://support.google.com/accounts/answer/185833                     |
-| SendGrid SMTP Guide                | https://docs.sendgrid.com/for-developers/sending-email/smtp-api/     |
+| SendGrid SMTP Guide                | https://www.geeksforgeeks.org/simple-mail-transfer-protocol-smtp/     |
