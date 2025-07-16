@@ -1,11 +1,14 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/tharik-10/sprint-5/main/assests/blue-green.png" width="500"/>
 </p>  
+
 # Immutable Infra Rollout for Blue Green
 | Created        | Last updated      | Version         | author|  Internal Reviewer | L0 | L1 | L2|
 |----------------|----------------|-----------------|-----------------|-----|------|----|----|
 | 2025-07-05  | 2025-07-05   |     Version 1         |  Mohamed Tharik |Priyanshu|Khushi|Mukul Joshi |Piyush Upadhyay|
+
 ## Table of Contents
+
 - [Introduction](#introduction)
 - [Overview of Blue-Green Deployment](#overview-of-blue-green-deployment)
 - [Prerequisites](#prerequisites)
@@ -21,13 +24,17 @@
 - [Conclusion](#conclusion)
 - [Contact Information](#contact-information)
 - [References](#references)
+
 ## Introduction
 This document explains how to implement **Blue-Green Deployment using Terraform** with an **Immutable Infrastructure** approach. It describes how two separate environments (blue and green) are used to deploy and switch application versions safely without downtime. Terraform automates the provisioning, switching, and removal of infrastructure components.
+
 ## Overview of Blue-Green Deployment
 Blue-Green Deployment strategy involves maintaining **two identical environments**:
 - **Blue** – The currently running production environment.
 - **Green** – The new version of the application deployed separately.
+
 Once the green environment is tested and verified, the **traffic is switched** from blue to green via **ALB (Application Load Balancer)** or **Route53**. The **old (blue) environment can then be terminated**, ensuring **zero-downtime** and full rollback capability.
+
 ## Prerequisites
 | **Category**        | **Requirement**                                                                  |
 | ------------------- | -------------------------------------------------------------------------------- |
@@ -39,10 +46,13 @@ Once the green environment is tested and verified, the **traffic is switched** f
 | **Terraform Code**  | Modules/files: `main.tf`, `variables.tf`, `outputs.tf`, etc. structured properly |
 | **Basic Knowledge** | Understanding of Terraform, AWS, Blue-Green Deployment, and Immutable Infra      |
 | **Version Control** | Git repository for managing and tracking Terraform code                          |
+
 ## Flow Diagram of Infrastructure Rollout for Blue Green 
+
 <p align="center">
   <img src="https://miro.medium.com/v2/resize:fit:640/format:webp/1*iYk-8TgN-EAgoJ-qZ1QQ3g.gif" alt="Blue-Green Deployment Failure" width="600"/>
 </p>
+
 ## Terraform Implementation Strategy
 ### Key Terraform Components:
 | Resource                           | Purpose                                                                  |
@@ -53,6 +63,7 @@ Once the green environment is tested and verified, the **traffic is switched** f
 | `aws_lb_listener`                  | Routes traffic to the active TG (blue/green)                             |
 | `aws_route53_record` (Optional)    | Switch DNS if Route53 is used instead of ALB                             |
 | `count` or `for_each`              | Used to dynamically create blue or green infra based on deployment phase |
+
 ## Implementation for Blue Green Deployment 
 ### Step 1: Initialize Terraform Project
 Create a folder:
@@ -72,6 +83,7 @@ blue-green-deployment/
 ├── userdata-blue.sh
 ├── userdata-green.sh     
 ```
+
 ### Step 3: Define AWS Provider
 **File**: `provider.tf`
 ```bash
@@ -109,22 +121,26 @@ resource "aws_lb" "app_alb" {
   load_balancer_type = "application"
   subnets            = var.subnet_ids
 }
+
 resource "aws_lb_target_group" "blue_tg" {
   name     = "blue-tg"
   port     = 80
   protocol = "HTTP"
   vpc_id   = var.vpc_id
 }
+
 resource "aws_lb_target_group" "green_tg" {
   name     = "green-tg"
   port     = 80
   protocol = "HTTP"
   vpc_id   = var.vpc_id
 }
+
 resource "aws_lb_listener" "http" {
   load_balancer_arn = aws_lb.app_alb.arn
   port              = 80
   protocol          = "HTTP"
+
   default_action {
     type             = "forward"
     target_group_arn = aws_lb_target_group.blue_tg.arn
@@ -133,6 +149,7 @@ resource "aws_lb_listener" "http" {
 ```
 ![Screenshot-276](https://raw.githubusercontent.com/tharik-10/sprint-5/main/assests/Screenshot-276.png)
 ![Screenshot-277](https://raw.githubusercontent.com/tharik-10/sprint-5/main/assests/Screenshot-277.png)
+
 **File**: `asg_blue.tf`
 ```bash
 resource "aws_launch_template" "blue_lt" {
@@ -142,16 +159,19 @@ resource "aws_launch_template" "blue_lt" {
   user_data     = filebase64("userdata-blue.sh")
   vpc_security_group_ids = [var.security_group_id]
 }
+
 resource "aws_autoscaling_group" "blue_asg" {
   desired_capacity     = 1
   max_size             = 1
   min_size             = 1
   vpc_zone_identifier  = var.subnet_ids
   target_group_arns    = [aws_lb_target_group.blue_tg.arn]
+
   launch_template {
     id      = aws_launch_template.blue_lt.id
     version = "$Latest"
   }
+
   health_check_type = "EC2"
 }
 ```
@@ -164,16 +184,19 @@ resource "aws_launch_template" "green_lt" {
   user_data     = filebase64("userdata-green.sh")
   vpc_security_group_ids = [var.security_group_id]
 }
+
 resource "aws_autoscaling_group" "green_asg" {
   desired_capacity     = 1
   max_size             = 1
   min_size             = 1
   vpc_zone_identifier  = var.subnet_ids
   target_group_arns    = [aws_lb_target_group.green_tg.arn]
+
   launch_template {
     id      = aws_launch_template.green_lt.id
     version = "$Latest"
   }
+
   health_check_type = "EC2"
 }
 ```
@@ -214,8 +237,10 @@ terraform apply -var-file="terraform.tfvars"
 ```
 ![Screenshot-272](https://raw.githubusercontent.com/tharik-10/sprint-5/main/assests/Screenshot-272.png)
 ![Screenshot-274](https://raw.githubusercontent.com/tharik-10/sprint-5/main/assests/Screenshot-274.png)
+
 Visit the alb_dns output URL
 ![Screenshot-271](https://raw.githubusercontent.com/tharik-10/sprint-5/main/assests/Screenshot-271.png)
+
 ### Step 5: Switch Traffic to Green
 Edit `alb.tf`:
 ```bash 
@@ -226,6 +251,7 @@ Edit `alb.tf`:
 ```
 ![Screenshot-280](https://raw.githubusercontent.com/tharik-10/sprint-5/main/assests/Screenshot-280.png)
 ![Screenshot-281](https://raw.githubusercontent.com/tharik-10/sprint-5/main/assests/Screenshot-281.png)
+
 Then re-apply:
 ```bash
 terraform apply -var-file="terraform.tfvars"
@@ -233,6 +259,7 @@ terraform apply -var-file="terraform.tfvars"
 Now ALB points to Green version — visit `alb_dns` again to confirm.
 ![Screenshot-279](https://raw.githubusercontent.com/tharik-10/sprint-5/main/assests/Screenshot-279.png)
 ![Screenshot-278](https://raw.githubusercontent.com/tharik-10/sprint-5/main/assests/Screenshot-278.png)
+
 ## Best Practices
 | Best Practice                       | Description                                                                                               |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------- |
@@ -242,12 +269,15 @@ Now ALB points to Green version — visit `alb_dns` again to confirm.
 | **Use Remote State with Locking**   | Store Terraform state in S3 and enable DynamoDB locking to avoid concurrent update issues.                |
 | **Clean Up Old Environments**       | After successful switch to green, destroy the blue environment to save cost and avoid confusion.          |
 | **Integrate with CI/CD**            | Automate Terraform apply/switch/destroy steps using Jenkins or GitHub Actions with manual approval gates. |
+
 ## Conclusion
 Blue-Green Deployment with Immutable Infrastructure provides **safe, zero-downtime deployments**. Using Terraform ensures consistent and repeatable rollouts. This strategy improves reliability, allows quick rollback, and aligns with modern DevOps practices.
+
 ## Contact Information
 | Name | Email address         |
 |------|------------------------|
 | Mohamed Tharik  | md.tharik.sanaatak@mygurukulam.co    |
+
 ## References
 | Link                                                                                                                               | Description                                                                                   |
 |------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------|
